@@ -49,10 +49,10 @@ Each gun inside the game has different parameters and different things it shoots
 
 ## Coding conventions
 Rules:
-Functions – should be short enough that they fit on your screen.
-Functions – should have a single purpose
-Functions/classes – Will be PascalCased, no matter what
-Interfaces – Are prefixed with a “I” and are PascalCased
-Variables – Should be private when they’re not being accessed anywhere else
-Variables – Are camalCased
-Variables – Are prefixed with a “_” if its serialized (visible) to the Unity inspector
+- Functions – should be short enough that they fit on your screen.
+- Functions – should have a single purpose
+- Functions/classes – Will be PascalCased, no matter what
+- Interfaces – Are prefixed with a “I” and are PascalCased
+- Variables – Should be private when they’re not being accessed anywhere else
+- Variables – Are camalCased
+- Variables – Are prefixed with a “_” if its serialized (visible) to the Unity inspector
