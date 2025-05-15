@@ -1,0 +1,71 @@
+@startuml
+class System.List
+class System.Dictionary
+class UnityEngine.Physics
+class UnityEngine.Input
+
+class ObjectPool<T>{
+# List<T> activePool
+# List<T> inactivePool
+}
+interface IPoolable{
+# bool active
+# void OnEnableObject()
+# void OnDisableObject()
+# void DoDie()
+}
+ObjectPool --* List
+
+class Gun{
+- IShootStrategy _shootStrategy
+# SetShootStrategy(IShootStrategy strategy)
+}
+Gun --* IShootStrategy
+
+interface IShootStrategy{
+# Shoot()
+}
+class ShootProjectileStrategy{
+- PorjectileExample prefab
+}
+class ShootHitscanStrategy{
+# float distance
+}
+ShootProjectileStrategy ..> IShootStrategy
+ShootHitscanStrategy ..> IShootStrategy
+
+class ProjectileExample{
+- Rigidbody rb
+}
+class ProjectileExamplePool << Singleton >>
+class ProjectileExamplePool{
+# ObjectPool<ProjectileExample>
+}
+ProjectileExamplePool --* ObjectPool
+ProjectileExamplePool --* ProjectileExample
+ProjectileExample --* ProjectileExamplePool 
+ProjectileExample ..> IPoolable
+ProjectileExample --> Physics
+
+ShootProjectileStrategy --* ProjectileExample
+
+class GunInventory{
+# Dictionary<KeyCode, Gun>
+}
+GunInventory --* Dictionary
+GunInventory --> Input
+
+class GunBuilder << Singleton >>
+class GunBuilder {
+- Gun newGun
+# StartNewGunBuild()
+# SetAmmo(int consumption)
+# SetStrategy(IShootStrategy strategy)
+# SetDamage(int damage)
+# Gun GetNewGun()
+}
+
+interface IDamageable{
+# TakeDamage(int damage)
+}
+@enduml
