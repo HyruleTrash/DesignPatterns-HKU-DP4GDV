@@ -56,3 +56,10 @@ Rules:
 - Variables – Should be private when they’re not being accessed anywhere else
 - Variables – Are camalCased
 - Variables – Are prefixed with a “_” if its serialized (visible) to the Unity inspector
+
+## Finished product
+As stated inside the UML and chosen design patterns. I have implemented a builder, strategy, and object pool. The gun’s shooting logic is handled by a strategy, the creation of a gun or a projectile is done via a builder, and all projectiles are handled by a abstract object pool, inside of a manager.
+To test out this project, unlock a gun from 1 to 4, by pressing both Z and one of the numeric keys. Then equip that gun by pressing one of the 1 to 4 keys. After that you will be able to shoot with the left mouse button.
+You’ll be able to see the ammo drain different depending on the gun, shoot slower or faster depending on the gun. And shoot differently depending on the gun.
+(I even made the projectile builder extra, because I wasn’t satisfied with the gun builder. It spawns different projectiles each time, depending on the set projectile defaults)
+
