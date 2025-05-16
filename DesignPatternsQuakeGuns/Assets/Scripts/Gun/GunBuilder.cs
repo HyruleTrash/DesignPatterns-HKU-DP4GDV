@@ -10,21 +10,37 @@ public class GunBuilder : SingletonBehaviour<GunBuilder>
 
     public void SetAmmo(int consumption)
     {
-        
+        if (newGun == null)
+            return;
+        newGun.ammoConsumption = consumption;
     }
 
     public void SetStrategy(IShootStrategy strategy)
     {
+        if (newGun == null)
+            return;
         newGun.strategy = strategy;
     }
 
     public void SetDamage(int damage)
     {
-        
+        if (newGun == null)
+            return;
+        newGun.damage = damage;
+    }
+
+    public void SetTimings(float fireRate, float reloadTime)
+    {
+        if (newGun == null)
+            return;
+        newGun.reloadTime = reloadTime;
+        newGun.firerate = fireRate;
     }
 
     public Gun GetNewGun()
     {
-        return newGun;
+        Gun setGun = new Gun(newGun);
+        newGun = null;
+        return setGun;
     }
 }
