@@ -1,5 +1,8 @@
 using UnityEngine;
 
+/// <summary>
+/// Simple singleton class that can be inherited from, gets auto instantiated if it doesn't exist yet
+/// </summary>
 public class SingletonBehaviour<T> : MonoBehaviour where T : MonoBehaviour
 {
     private static T _instance;

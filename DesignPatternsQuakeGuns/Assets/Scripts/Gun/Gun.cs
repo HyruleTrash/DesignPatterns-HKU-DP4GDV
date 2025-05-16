@@ -1,6 +1,10 @@
 ﻿using LucasCustomClasses;
 using UnityEngine;
 
+/// <summary>
+/// Holds the logic for ammo consumption and fire rate.
+/// Also calls the firing logic inside the set strategy
+/// </summary>
 public class Gun
 {
     public IShootStrategy strategy;

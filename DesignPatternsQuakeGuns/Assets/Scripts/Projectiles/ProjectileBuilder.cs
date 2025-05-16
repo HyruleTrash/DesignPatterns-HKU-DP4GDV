@@ -1,6 +1,9 @@
 ﻿
 using UnityEngine;
 
+/// <summary>
+/// Lets you easily create a projectile with random values
+/// </summary>
 public class ProjectileBuilder
 {
     public GameObject newProjectile;

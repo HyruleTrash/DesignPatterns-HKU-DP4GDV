@@ -55,6 +55,12 @@ namespace LucasCustomClasses
             _inactivePool.Add(relevantObject);
         }
         
+        /// <summary>
+        /// Gets a inactive version of your object, or creates a new one if it doesnt exist yet
+        /// </summary>
+        /// <param name="poolable">result</param>
+        /// <param name="pool">relevant pool</param>
+        /// <param name="prefab">example class</param>
         public static void GetNewPoolable(out T poolable, ObjectPool<T> pool, T prefab)
         {
             poolable = pool.GetInactiveObject(out var result);

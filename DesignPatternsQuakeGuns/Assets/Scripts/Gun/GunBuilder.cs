@@ -1,5 +1,7 @@
-﻿
-public class GunBuilder : SingletonBehaviour<GunBuilder>
+﻿/// <summary>
+/// this class lets you create a gun without having to call the gun class's functions (outside the builder)
+/// </summary>
+public class GunBuilder
 {
     public Gun newGun;
 
@@ -29,6 +31,9 @@ public class GunBuilder : SingletonBehaviour<GunBuilder>
         newGun.damage = damage;
     }
 
+    /// <summary>
+    /// Sets the gun's timings (currently only fire rate)
+    /// </summary>
     public void SetTimings(float fireRate)
     {
         if (newGun == null)

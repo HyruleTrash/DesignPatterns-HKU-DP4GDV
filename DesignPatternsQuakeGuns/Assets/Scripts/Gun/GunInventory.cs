@@ -3,6 +3,9 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Creates the user's guns on startup, handle's the gun switching logic, and gun unlocking logic
+/// </summary>
 public class GunInventory :  MonoBehaviour
 {
     public Dictionary<KeyCode, Gun> guns = new Dictionary<KeyCode, Gun>();
@@ -12,34 +15,35 @@ public class GunInventory :  MonoBehaviour
 
     private void Start()
     {
-        GunBuilder.instance.StartNewGunBuild();
-        GunBuilder.instance.SetAmmo(1);
-        GunBuilder.instance.SetDamage(1);
-        GunBuilder.instance.SetTimings(0.2f);
-        GunBuilder.instance.SetStrategy(new ShootHitscanStrategy(headCamera.transform));
-        allGuns.Add(KeyCode.Alpha1, GunBuilder.instance.GetNewGun());
+        GunBuilder builder = new GunBuilder();
+        builder.StartNewGunBuild();
+        builder.SetAmmo(1);
+        builder.SetDamage(1);
+        builder.SetTimings(0.2f);
+        builder.SetStrategy(new ShootHitscanStrategy(headCamera.transform));
+        allGuns.Add(KeyCode.Alpha1, builder.GetNewGun());
         
-        GunBuilder.instance.StartNewGunBuild();
-        GunBuilder.instance.SetAmmo(2);
-        GunBuilder.instance.SetDamage(2);
-        GunBuilder.instance.SetTimings(0.5f);
-        GunBuilder.instance.SetStrategy(new ShootHitscanStrategy(headCamera.transform));
-        allGuns.Add(KeyCode.Alpha2, GunBuilder.instance.GetNewGun());
+        builder.StartNewGunBuild();
+        builder.SetAmmo(2);
+        builder.SetDamage(2);
+        builder.SetTimings(0.5f);
+        builder.SetStrategy(new ShootHitscanStrategy(headCamera.transform));
+        allGuns.Add(KeyCode.Alpha2, builder.GetNewGun());
         
-        GunBuilder.instance.StartNewGunBuild();
-        GunBuilder.instance.SetAmmo(2);
-        GunBuilder.instance.SetDamage(2);
-        GunBuilder.instance.SetTimings(0.5f);
-        GunBuilder.instance.SetStrategy(new ShootProjectileStrategy(headCamera.transform.forward, 40, new ExampleProjectile()));
-        allGuns.Add(KeyCode.Alpha3, GunBuilder.instance.GetNewGun());
+        builder.StartNewGunBuild();
+        builder.SetAmmo(2);
+        builder.SetDamage(2);
+        builder.SetTimings(0.5f);
+        builder.SetStrategy(new ShootProjectileStrategy(headCamera.transform.forward, 40, new ExampleProjectile()));
+        allGuns.Add(KeyCode.Alpha3, builder.GetNewGun());
         
-        GunBuilder.instance.StartNewGunBuild();
-        GunBuilder.instance.SetAmmo(4);
-        GunBuilder.instance.SetDamage(4);
-        GunBuilder.instance.SetTimings(1f);
+        builder.StartNewGunBuild();
+        builder.SetAmmo(4);
+        builder.SetDamage(4);
+        builder.SetTimings(1f);
         Vector3 shotDirection = headCamera.transform.forward + (Vector3.up * 0.5f);
-        GunBuilder.instance.SetStrategy(new ShootProjectileStrategy(shotDirection, 30, new ExampleProjectileTwo()));
-        allGuns.Add(KeyCode.Alpha4, GunBuilder.instance.GetNewGun());
+        builder.SetStrategy(new ShootProjectileStrategy(shotDirection, 30, new ExampleProjectileTwo()));
+        allGuns.Add(KeyCode.Alpha4, builder.GetNewGun());
     }
 
     private void Update()

@@ -15,6 +15,10 @@ public class ShootProjectileStrategy : IShootStrategy
         this.projectilePrefab = projectilePrefab;
     }
 
+    /// <summary>
+    /// Gets a projectile of the set type, and launches it
+    /// </summary>
+    /// <param name="damage"></param>
     public void Shoot(int damage)
     {
         ObjectPool<IShootable>.GetNewPoolable(out var projectile, ProjectilePool.instance.GetProjectilePool(projectilePrefab.GetType()), projectilePrefab);

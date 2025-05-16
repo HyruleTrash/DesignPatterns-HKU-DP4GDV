@@ -2,6 +2,9 @@ using System;
 using UnityEngine;
 using UnityEngine.Events;
 
+/// <summary>
+/// Simple Input event handler component, used when you need to connect a input to a function temporarily or quick
+/// </summary>
 public class InputEventLinker : MonoBehaviour
 {
     public KeyCode keyCode;

@@ -1,6 +1,9 @@
 using LucasCustomClasses;
 using UnityEngine;
 
+/// <summary>
+/// Handles the basic on and off logic of a projectile
+/// </summary>
 public class BaseProjectile : IShootable
 {
     protected static readonly Mesh[] possibleMeshes = new Mesh[]{};
