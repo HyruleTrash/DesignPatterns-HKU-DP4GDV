@@ -16,16 +16,4 @@ public class ProjectilePool : SingletonBehaviour<ProjectilePool>
         projectilePool.Add(type, newPool);
         return newPool;
     }
-
-    private void Update()
-    {
-        foreach ((System.Type key, ObjectPool<IShootable> pool) in projectilePool)
-        {
-            List<IShootable> currentActive = new List<IShootable>(pool.activePool);
-            foreach (var objectShootable in currentActive)
-            {
-                objectShootable.Update(Time.deltaTime);
-            }
-        }
-    }
 }

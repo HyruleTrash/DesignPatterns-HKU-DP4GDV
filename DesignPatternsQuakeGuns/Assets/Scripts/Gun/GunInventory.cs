@@ -37,8 +37,8 @@ public class GunInventory :  MonoBehaviour
         GunBuilder.instance.SetAmmo(4);
         GunBuilder.instance.SetDamage(4);
         GunBuilder.instance.SetTimings(1f);
-        Vector3 shotDirection = headCamera.transform.forward + (Vector3.up * 0.2f);
-        GunBuilder.instance.SetStrategy(new ShootProjectileStrategy(shotDirection, 30, new ExampleProjectile()));
+        Vector3 shotDirection = headCamera.transform.forward + (Vector3.up * 0.5f);
+        GunBuilder.instance.SetStrategy(new ShootProjectileStrategy(shotDirection, 30, new ExampleProjectileTwo()));
         allGuns.Add(KeyCode.Alpha4, GunBuilder.instance.GetNewGun());
     }
 

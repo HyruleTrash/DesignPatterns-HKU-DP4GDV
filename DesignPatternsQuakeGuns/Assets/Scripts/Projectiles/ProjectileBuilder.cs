@@ -65,9 +65,4 @@ public class ProjectileBuilder
         MeshRenderer render = projectile.GetComponent<MeshRenderer>();
         render.material.color = colors[Random.Range(0, colors.Length)];
     }
-
-    public GameObject GetProjectile()
-    {
-        return newProjectile;
-    }
 }
