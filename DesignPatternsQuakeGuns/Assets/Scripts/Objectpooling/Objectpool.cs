@@ -54,5 +54,19 @@ namespace LucasCustomClasses
             }
             _inactivePool.Add(relevantObject);
         }
+        
+        public static void GetNewPoolable(out T poolable, ObjectPool<T> pool, T prefab)
+        {
+            poolable = pool.GetInactiveObject(out var result);
+            if (result)
+            {
+                pool.ActivateObject(poolable);
+            }
+            else
+            {
+                poolable = (T)prefab.Instantiate();
+                pool.AddNewObject(poolable);
+            }
+        }
     }
 }

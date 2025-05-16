@@ -1,5 +1,5 @@
 ﻿
 public interface IShootStrategy
 {
-    public void Shoot();
+    public void Shoot(int damage);
 }

@@ -3,7 +3,19 @@ using UnityEngine;
 public class SingletonBehaviour<T> : MonoBehaviour where T : MonoBehaviour
 {
     private static T _instance;
-    public static T instance { get { return _instance; } }
+
+    public static T instance
+    {
+        get
+        {
+            if (_instance == null)
+            {
+                GameObject temp = new GameObject(typeof(T).Name);
+                _instance = (T)temp.AddComponent(typeof(T));
+            }
+            return _instance;
+        }
+    }
     
     protected void Awake()
     {

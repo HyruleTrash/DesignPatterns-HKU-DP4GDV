@@ -29,11 +29,10 @@ public class GunBuilder : SingletonBehaviour<GunBuilder>
         newGun.damage = damage;
     }
 
-    public void SetTimings(float fireRate, float reloadTime)
+    public void SetTimings(float fireRate)
     {
         if (newGun == null)
             return;
-        newGun.reloadTime = reloadTime;
         newGun.firerate = fireRate;
     }
 
